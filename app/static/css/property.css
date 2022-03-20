@@ -1,0 +1,69 @@
+body {
+  padding-top: 5rem;
+}
+
+li {
+  list-style: none;
+}
+
+.card {
+  width: 800px;
+  height: 370px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border: 1px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.card #data {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  grid-auto-rows: 30px;
+  grid-gap: 5px;
+}
+
+.card #data p {
+  height: 30px;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.card .price {
+  font-size: 11px;
+  background-color: lightblue;
+  font-weight: bold;
+  color: azure;
+  border: 1px;
+  width: 100px;
+  border-radius: 25px;
+}
+
+.card span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 30px;
+}
+/*# sourceMappingURL=property.css.map */

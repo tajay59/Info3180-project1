@@ -1,0 +1,30 @@
+body {
+    padding-top: 5rem; 
+}
+
+
+form {
+    background-color: coral;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    padding: 30px;
+
+    div{
+        display: flex;
+        flex-direction: column;
+        justify-content: left;  
+        row-gap: 5px;
+        min-height: 70px;
+    }
+
+    #form_title,#form_description,#form_location{
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+
+    #photo_submit{
+        gap:10px;
+    }
+     
+}

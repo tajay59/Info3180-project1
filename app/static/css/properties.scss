@@ -1,0 +1,78 @@
+body {
+    padding-top: 5rem;
+}
+
+ul{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 50px;
+}
+
+
+li{
+    list-style: none;
+}
+.card{
+    width: 350px;
+    height:370px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 3fr 1fr 1fr; 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border: 1px;
+    border-radius: 10px;
+    overflow: hidden;
+    
+    #data{ 
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        display: grid; grid-template-columns: 1fr;
+        grid-auto-rows: 30px; 
+        grid-gap: 5px;
+        p{
+            height: 30px;
+        }
+    }
+    img{
+        width: 100%;
+        height: 200px;
+        object-fit: fill;
+    }
+ 
+    
+    .price{
+        font-size: 11px;
+        background-color: lightblue;
+        font-weight: bold;
+        color: azure;
+        border: 1px;
+        width: 100px; 
+        border-radius: 25px; 
+    }
+    span{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 30px; 
+    }
+}
+
+#linkbutton{
+    width: 100%; 
+a  {
+    width: 100%;
+    background-color: lightseagreen;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  a:hover, a:active {
+    background-color: turquoise;
+    cursor: pointer;
+  }
+}

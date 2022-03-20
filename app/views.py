@@ -6,12 +6,14 @@ This file creates your application.
 """
 
 from app import app, db, login_manager
-from flask import render_template, request, redirect, url_for, flash
+from flask import render_template, request, redirect, url_for, flash, session, abort, send_from_directory
 from flask_login import login_user, logout_user, current_user, login_required
-from app.forms import LoginForm
-from app.models import UserProfile
-from werkzeug.security import check_password_hash
-
+from app.forms import LoginForm, PropertyForm
+from app.models import UserProfile, PropertyProfile
+from werkzeug.security import check_password_hash 
+from werkzeug.utils import secure_filename
+from os import getcwd, listdir
+from os.path import join
 ###
 # Routing for your application.
 ###
@@ -28,11 +30,95 @@ def about():
     return render_template('about.html')
 
 
-@app.route('/secure-page')
+def get_uploaded_images(rootdir,uploaddir):
+    images = []
+    try:
+        images = listdir(join(rootdir,uploaddir))
+    except Exception as e:
+        print(e)
+    else:
+        print("complete")
+
+    return images
+
+
+
+
+
+@app.route('/properties/<propertyid>')
 @login_required
-def secure_page():
+def get_images(propertyid):   
+    return send_from_directory( join( getcwd(),app.config['UPLOAD_FOLDER']),propertyid )
+
+
+
+
+@app.route('/property/<propertyid>')
+@login_required
+def property(propertyid): 
+    apt = PropertyProfile.query.filter_by(title=propertyid).first()  
+    return render_template('property.html',data=apt) 
+    
+
+@app.route('/properties/create', methods=["GET","POST"])
+#@login_required
+def new_property():
     """Render a secure page on our website that only logged in users can access."""
-    return render_template('secure_page.html')
+    form = PropertyForm()
+    if request.method == 'GET':
+        return render_template('new_property.html',form=form)
+
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            # process form data
+            title       = form.title.data
+            bathrooms   = form.bathrooms.data
+            rooms       = form.rooms.data
+            location    = form.location.data
+            price       = form.price.data
+            housingtype = form.housingtype.data
+            description = form.description.data
+            photo       = form.photo.data
+            filename    = secure_filename(photo.filename)
+            photo.save( join(getcwd(),app.config['UPLOAD_FOLDER'] , filename))
+
+            user = PropertyProfile.query.filter_by(title=title).first()
+             
+
+
+            if user is not None  :
+                
+                flash(f'Property already exists   {user.price}', 'danger')
+                return render_template('new_property.html',form=form)
+
+            else:
+                # Insert to database
+                newproperty = PropertyProfile(title,bathrooms,rooms,location,price,housingtype,description,filename)
+                db.session.add(newproperty)
+                db.session.commit()
+                flash('Successfully added a new property', 'success')
+                return redirect(url_for("properties")) 
+            
+        else:
+            flash_errors(form)
+            return render_template('new_property.html',form=form)
+
+
+
+
+@app.route('/properties')
+@login_required
+def properties():
+    #if not session.get('logged_in'):
+    #    abort(401)
+    found = PropertyProfile.query.all()
+    rootdir             = getcwd()
+    uploaddir           = "app/uploads/photos"
+    #found               = get_uploaded_images(rootdir,uploaddir)
+    return render_template('properties.html',data=found) 
+
+
+
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -66,7 +152,7 @@ def login():
 
                 # remember to flash a message to the user
                 flash('Logged in successfully.', 'success')
-                return redirect(url_for("secure_page"))  # they should be redirected to a secure-page route instead
+                return redirect(url_for("home"))  # they should be redirected to a secure-page route instead
 
             else:
                 flash('Username or Password is incorrect.', 'danger')

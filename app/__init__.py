@@ -17,4 +17,4 @@ login_manager.login_view = 'login'
 # Instantiate Flask-Migrate library here
 migrate = Migrate(app,db)
 
-from app import views
+from app import views 

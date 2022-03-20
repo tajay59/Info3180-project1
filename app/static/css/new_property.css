@@ -1,0 +1,39 @@
+body {
+  padding-top: 5rem;
+}
+
+form {
+  background-color: coral;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  padding: 30px;
+}
+
+form div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  row-gap: 5px;
+  min-height: 70px;
+}
+
+form #form_title, form #form_description, form #form_location {
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+form #photo_submit {
+  gap: 10px;
+}
+/*# sourceMappingURL=new_property.css.map */

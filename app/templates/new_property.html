@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+ 
+{% block css %}
+<link rel="stylesheet" href="{{url_for('static',filename='css/new_property.css')}}"> 
+<script rel="javascript" href="{{url_for('static',filename='js/new_property.js')}}"></script>
+
+
+{% endblock%}
+
+{% block main  %}
+{% include 'flash_messages.html' %}
+
+<h1> Add New Property</h1>
+
+<form action="{{ url_for('new_property') }}" method="POST" enctype="multipart/form-data">
+
+    {# Add the file upload field as you learnt for Flask-WTF #}
+    {{ form.csrf_token }}
+
+    <div id="form_title">
+        {{form.title.label  }}
+        {{form.title(class="form_title")  }}       
+    </div>
+
+    <div id="form_description">
+        {{form.description.label  }}
+        {{form.description(class="form_description")  }}    
+    </div>
+
+    <div id="form_rooms">
+        {{form.rooms.label  }}
+        {{form.rooms(class="form_rooms")  }}  
+    </div>
+
+    <div id="form_bathrooms">
+        {{form.bathrooms.label  }}
+        {{form.bathrooms(class="form_bathrooms")  }}  
+    </div>
+
+    <div id="form_price">
+        {{form.price.label  }}
+        {{form.price(class="form_price")  }}  
+    </div>
+
+    <div id="form_housingtype">
+        {{form.housingtype.label  }}
+        {{form.housingtype(class="form_housingtype")  }}   
+    </div>
+    
+
+    <div id="form_location">
+        {{form.location.label  }}
+        {{form.location(class="form_location")  }}  
+    </div>
+
+    <div id="photo_submit">
+        {{ form.photo.label }}
+        {{form.photo}}   
+        <button type="submit" name="submit" class="btn btn-primary">Add Property</button>
+    </div>
+
+    
+  </form>
+
+{% endblock %}
