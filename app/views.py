@@ -46,7 +46,7 @@ def get_uploaded_images(rootdir,uploaddir):
 
 
 @app.route('/properties/<propertyid>')
-@login_required
+#@login_required
 def get_images(propertyid):   
     return send_from_directory( join( getcwd(),app.config['UPLOAD_FOLDER']),propertyid )
 
@@ -54,7 +54,7 @@ def get_images(propertyid):
 
 
 @app.route('/property/<propertyid>')
-@login_required
+#@login_required
 def property(propertyid): 
     apt = PropertyProfile.query.filter_by(title=propertyid).first()  
     return render_template('property.html',data=apt) 
@@ -107,7 +107,7 @@ def new_property():
 
 
 @app.route('/properties')
-@login_required
+#@login_required
 def properties():
     #if not session.get('logged_in'):
     #    abort(401)
