@@ -13,11 +13,10 @@ li{
     list-style: none;
 }
 .card{
-    width: 350px;
-    height:370px;
+    width: 350px; 
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 3fr 1fr 1fr; 
+    grid-template-rows: 3fr 2fr 1fr; 
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border: 1px;
     border-radius: 10px;
@@ -28,12 +27,35 @@ li{
         padding-right: 20px;
         padding-top: 10px;
         padding-bottom: 10px;
-        display: grid; grid-template-columns: 1fr;
-        grid-auto-rows: 30px; 
+        display: grid; 
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3,1fr);
+        grid-auto-rows: auto; 
         grid-gap: 5px;
-        p{
-            height: 30px;
-        }
+
+        span{  
+            font-size: 15px; }
+        
+            h6{
+                font-size: 15px;
+            }
+
+            #location{
+                display: flex;
+                column-gap: 10px;
+                justify-content: left;
+                align-items: center;
+                width: auto;
+                
+                svg{
+                    width: 20px;
+                    height: auto;
+                }
+                h6{
+                    margin: 0;
+                    font-size: 12px;
+                }
+            }
     }
     img{
         width: 100%;
@@ -42,14 +64,15 @@ li{
     }
  
     
-    .price{
-        font-size: 11px;
+    #price{
+        
         background-color: lightblue;
         font-weight: bold;
         color: azure;
         border: 1px;
-        width: 100px; 
-        border-radius: 25px; 
+        width: 150px; 
+        border-radius: 15px; 
+        font-size: 10px;
     }
     span{
         display: flex;
@@ -61,8 +84,11 @@ li{
 
 #linkbutton{
     width: 100%; 
+    
 a  {
     width: 100%;
+    height: 100%;
+    font-size: 20px;
     background-color: lightseagreen;
     color: white;
     padding: 14px 25px;

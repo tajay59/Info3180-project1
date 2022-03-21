@@ -24,7 +24,7 @@
 
     <div id="form_description">
         {{form.description.label  }}
-        {{form.description(class="form_description")  }}    
+        {{form.description(class="form_description", maxlength=250)  }}    
     </div>
 
     <div id="form_rooms">
@@ -50,7 +50,7 @@
 
     <div id="form_location">
         {{form.location.label  }}
-        {{form.location(class="form_location")  }}  
+        {{form.location(class="form_location", maxlength=40)  }}  
     </div>
 
     <div id="photo_submit">

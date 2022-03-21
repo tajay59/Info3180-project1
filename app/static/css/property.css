@@ -7,12 +7,12 @@ li {
 }
 
 .card {
-  width: 800px;
+  width: 1000px;
   height: 370px;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
+  -ms-grid-columns: 1fr 2fr;
+      grid-template-columns: 1fr 2fr;
   -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
           box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border: 1px;
@@ -29,12 +29,97 @@ li {
   display: grid;
   -ms-grid-columns: 1fr;
       grid-template-columns: 1fr;
-  grid-auto-rows: 30px;
-  grid-gap: 5px;
+  -ms-grid-rows: 1fr , 1fr , 4fr, 1fr, 1fr, 1fr;
+      grid-template-rows: 1fr , 1fr , 4fr, 1fr, 1fr, 1fr;
+  grid-gap: 10px;
 }
 
 .card #data p {
   height: 30px;
+}
+
+.card #data .price_house {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
+  column-gap: 10px;
+}
+
+.card #data #house > span {
+  background-color: orange;
+}
+
+.card #data button {
+  width: 150px;
+  height: 40px;
+  border: 1px;
+  border-radius: 5px;
+  background-color: darkcyan;
+  color: azure;
+}
+
+.card #data .rooms_bathrooms {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 30px;
+          column-gap: 30px;
+}
+
+.card #data .rooms_bathrooms #rooms, .card #data .rooms_bathrooms #bathrooms {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: auto;
+}
+
+.card #data .rooms_bathrooms #rooms svg, .card #data .rooms_bathrooms #bathrooms svg {
+  width: 20px;
+  height: auto;
+}
+
+.card #data .rooms_bathrooms #rooms h6, .card #data .rooms_bathrooms #bathrooms h6 {
+  margin: 0;
+}
+
+.card #data #location {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: auto;
+}
+
+.card #data #location svg {
+  width: 20px;
+  height: auto;
+}
+
+.card #data #location h6 {
+  margin: 0;
 }
 
 .card img {

@@ -3,7 +3,7 @@ body {
 }
 
 form {
-  background-color: coral;
+  width: 400px;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[2];
@@ -35,5 +35,9 @@ form #form_title, form #form_description, form #form_location {
 
 form #photo_submit {
   gap: 10px;
+}
+
+form #form_description {
+  padding: 5px;
 }
 /*# sourceMappingURL=new_property.css.map */
