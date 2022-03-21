@@ -62,6 +62,7 @@ def property(propertyid):
 
 
 
+
 @app.route('/properties/create', methods=["GET","POST"])
 #@login_required
 def new_property():
