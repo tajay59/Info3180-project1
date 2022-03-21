@@ -60,6 +60,7 @@ def property(propertyid):
     return render_template('property.html',data=apt) 
     
 
+
 @app.route('/properties/create', methods=["GET","POST"])
 #@login_required
 def new_property():
