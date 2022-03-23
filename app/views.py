@@ -80,7 +80,7 @@ def new_property():
             description = form.description.data
             photo       = form.photo.data
             filename    = secure_filename(photo.filename)
-            photo.save( join(getcwd(),app.config['UPLOAD_FOLDER'] , filename))
+            photo.save( join( getcwd(),app.config['UPLOAD_FOLDER'] , filename))
 
             user = PropertyProfile.query.filter_by(title=title).first()
              
